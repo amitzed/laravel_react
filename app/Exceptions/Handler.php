@@ -34,18 +34,13 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        parent::report($exception);
-    }
+      if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException)
+      {
+       return response()->json([
+            'message' => 'Not found'
+        ], 404);
+      }
 
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
-     */
-    public function render($request, Exception $exception)
-    {
         return parent::render($request, $exception);
     }
 }
