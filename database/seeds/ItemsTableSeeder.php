@@ -8,7 +8,7 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-      
+
         for ($i = 0; $i < 85; $i++) {
           Item::create([
             'name' => $faker->title,

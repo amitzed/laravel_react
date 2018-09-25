@@ -2,34 +2,37 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class Main extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      items: []
+      items: [],
+      currentItem: null
     }
   }
   componentDidMount() {
-    fetch('/api/items')
-    .then(response => {
-      return response.json();
-    })
-    .then(items => {
-      this.setState({ items });
-    });
+
   }
     renderItems() {
       return this.state.items.map(item => {
         return (
-          <li key={item.id}>
+          <li onClick={ ()=>this.handleClick(item)}
+            key={item.id} >
             { item.name }
           </li>
-        )
+        );
       })
     }
-    return() {
+    handleClick(item){
+      this.setState({currentItem:item});
+    }
+    render() {
         return (
           <div>
-              <ul> {this.renderItems()}</ul>
+            <div>
+              <h2>Available Items</h2>
+                <ul> { this.renderItems() } </ul>
+            </div>
+            <Item item={this.state.currentItem} />
           </div>
         );
     }

@@ -36180,51 +36180,65 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Main = function (_Component) {
   _inherits(Main, _Component);
 
-  function Main(props) {
+  function Main() {
     _classCallCheck(this, Main);
 
-    var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
 
     _this.state = {
-      items: []
+      items: [],
+      currentItem: null
     };
     return _this;
   }
 
   _createClass(Main, [{
     key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch('/api/items').then(function (response) {
-        return response.json();
-      }).then(function (items) {
-        _this2.setState({ items: items });
-      });
-    }
+    value: function componentDidMount() {}
   }, {
     key: 'renderItems',
     value: function renderItems() {
+      var _this2 = this;
+
       return this.state.items.map(function (item) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'li',
-          { key: item.id },
+          { onClick: function onClick() {
+              return _this2.handleClick(item);
+            },
+            key: item.id },
           item.name
         );
       });
     }
   }, {
-    key: 'return',
-    value: function _return() {
+    key: 'handleClick',
+    value: function handleClick(item) {
+      this.setState({ currentItem: item });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'ul',
+          'div',
           null,
-          ' ',
-          this.renderItems()
-        )
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h2',
+            null,
+            'Available Items'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'ul',
+            null,
+            ' ',
+            this.renderItems(),
+            ' '
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Item, { item: this.state.currentItem })
       );
     }
   }]);
