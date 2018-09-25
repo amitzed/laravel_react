@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Item from './Item';
 
 class Main extends Component {
   constructor() {
