@@ -9,9 +9,9 @@ class ItemsTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 85; $i++) {
+        for ($i = 0; $i < 10; $i++) {
           Item::create([
-            'name' => $faker->title,
+            'name' => $faker->sentence($nbWords = 4, $variableNbWords = true),
             'about' => $faker->paragraph,
             'price' => $faker->randomNumber(4),
             'stock' => $faker->boolean(85)
