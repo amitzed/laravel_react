@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Item from './Item';
 import NewItem from './NewItem';
 
-class Main extends Component {
+class Main extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -74,7 +74,7 @@ class Main extends Component {
         justifyContent: "flex-start",
         padding: '10px',
         width: '35%',
-        background: '#f0f0f0',
+        background: '#4682b4',
         padding: '20px 20px 20px 20px',
         margin: '30px 10px 10px 30px'
 
@@ -83,8 +83,8 @@ class Main extends Component {
         return (
           <div>
             <div style={mainOptic}>
-              <div style={optic}>
-                <h2>Available Items</h2>
+              <div class="available" style={optic}>
+                <h2>Available Items:</h2>
                   <ul> { this.renderItems() } </ul>
               </div>
                 <Item item={this.state.currentItem} />
@@ -95,8 +95,8 @@ class Main extends Component {
     }
 }
 
-export default Main;
 
-if (document.getElementById('root')) {
-    ReactDOM.render(<Main />, document.getElementById('root'));
-}
+ReactDOM.render(
+  <Main />,
+  document.getElementById('root')
+)

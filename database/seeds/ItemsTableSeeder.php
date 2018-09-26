@@ -11,7 +11,7 @@ class ItemsTableSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
           Item::create([
-            'name' => $faker->sentence($nbWords = 4, $variableNbWords = true),
+            'name' => $faker->title,
             'about' => $faker->paragraph,
             'price' => $faker->randomNumber(4),
             'stock' => $faker->boolean(85)

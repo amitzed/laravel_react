@@ -36183,8 +36183,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Main = function (_Component) {
-  _inherits(Main, _Component);
+var Main = function (_React$Component) {
+  _inherits(Main, _React$Component);
 
   function Main() {
     _classCallCheck(this, Main);
@@ -36277,7 +36277,7 @@ var Main = function (_Component) {
         justifyContent: "flex-start",
         padding: '10px',
         width: '35%',
-        background: '#f0f0f0'
+        background: '#4682b4'
       }, _defineProperty(_optic, 'padding', '20px 20px 20px 20px'), _defineProperty(_optic, 'margin', '30px 10px 10px 30px'), _optic);
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -36288,11 +36288,11 @@ var Main = function (_Component) {
           { style: mainOptic },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { style: optic },
+            { 'class': 'available', style: optic },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'h2',
               null,
-              'Available Items'
+              'Available Items:'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'ul',
@@ -36310,13 +36310,9 @@ var Main = function (_Component) {
   }]);
 
   return Main;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Main);
-
-if (document.getElementById('root')) {
-  __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Main, null), document.getElementById('root'));
-}
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Main, null), document.getElementById('root'));
 
 /***/ }),
 /* 40 */
@@ -57296,7 +57292,7 @@ var Item = function Item(_ref) {
       { style: optic },
       ' ',
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'h2',
+        'h3',
         null,
         ' Unknown Item '
       ),
@@ -57330,7 +57326,7 @@ var Item = function Item(_ref) {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'h5',
       null,
-      ' Status ',
+      ' In Stock?: ',
       item.stock ? 'In Stock' : 'No Stock - Please Check Back Later',
       ' '
     )
@@ -57366,8 +57362,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var NewItem = function (_Component) {
-  _inherits(NewItem, _Component);
+var NewItem = function (_React$Component) {
+  _inherits(NewItem, _React$Component);
 
   function NewItem(props) {
     _classCallCheck(this, NewItem);
@@ -57408,25 +57404,24 @@ var NewItem = function (_Component) {
 
       var optic = {
         position: 'absolute',
-        left: '35%',
-        top: '60%',
-        flexDirection: 'space-between',
-        marginLeft: '30px'
+        left: '5%',
+        top: '40%',
+        flexDirection: 'space-between'
       };
       var inputOptic = {
-        margin: '0px 10px 0px 10px'
+        margin: '20px 10px 0px 10px'
       };
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h3',
-          null,
-          ' Add a New item '
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { style: optic },
+          { 'class': 'forms', style: optic },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h3',
+            null,
+            ' Add a New Item: '
+          ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'form',
             { onSubmit: this.handleSubmit },
@@ -57462,7 +57457,7 @@ var NewItem = function (_Component) {
                   return _this2.handleInput('stock', e);
                 } })
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', value: 'Submit' })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', value: 'Add Item' })
           )
         )
       );
@@ -57470,7 +57465,7 @@ var NewItem = function (_Component) {
   }]);
 
   return NewItem;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (NewItem);
 

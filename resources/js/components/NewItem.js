@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class NewItem extends Component {
+class NewItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,18 +29,18 @@ class NewItem extends Component {
     render() {
       const optic = {
         position: 'absolute',
-        left: '35%',
-        top: '60%',
+        left: '5%',
+        top: '40%',
         flexDirection: 'space-between',
-        marginLeft: '30px'
       }
       const inputOptic = {
-        margin: '0px 10px 0px 10px'
+        margin: '20px 10px 0px 10px'
       }
       return(
         <div>
-          <h3> Add a New item </h3>
-          <div style={optic}>
+
+          <div class="forms" style={optic}>
+            <h3> Add a New Item: </h3>
             <form onSubmit={this.handleSubmit}>
 
               <label> Name:
@@ -59,12 +59,13 @@ class NewItem extends Component {
                 <input style={inputOptic} type="text" onChange={(e)=>this.handleInput('stock', e)} />
               </label>
 
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Add Item" />
             </form>
           </div>
         </div>
       )
     }
   }
+
 
 export default NewItem;
