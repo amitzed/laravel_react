@@ -5,7 +5,7 @@ import NewItem from './NewItem';
 
 class Main extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       items: [],
       currentItem: null
@@ -14,7 +14,7 @@ class Main extends Component {
     this.handleNewItem = this.handleNewItem.bind(this);
   }
   componentDidMount() {
-    fetch('api/items')
+    fetch('/api/items')
     .then(response => {
       return response.json();
     })
@@ -62,15 +62,34 @@ class Main extends Component {
       })
 
     }
-
     render() {
+
+    const mainOptic =  {
+        display: "flex",
+        flexDirection: "row"
+    }
+
+    const optic = {
+
+        justifyContent: "flex-start",
+        padding: '10px',
+        width: '35%',
+        background: '#f0f0f0',
+        padding: '20px 20px 20px 20px',
+        margin: '30px 10px 10px 30px'
+
+    }
+
         return (
           <div>
-            <div>
-              <h2>Available Items</h2>
-                <ul> { this.renderItems() } </ul>
+            <div style={mainOptic}>
+              <div style={optic}>
+                <h2>Available Items</h2>
+                  <ul> { this.renderItems() } </ul>
+              </div>
+                <Item item={this.state.currentItem} />
+                <NewItem onAdd={this.handleNewItem} />
             </div>
-            <Item item={this.state.currentItem} />
           </div>
         );
     }

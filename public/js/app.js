@@ -36170,6 +36170,8 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__NewItem__ = __webpack_require__(54);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -36203,7 +36205,7 @@ var Main = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch('api/items').then(function (response) {
+      fetch('/api/items').then(function (response) {
         return response.json();
       }).then(function (items) {
         _this2.setState({ items: items });
@@ -36263,26 +36265,46 @@ var Main = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _optic;
+
+      var mainOptic = {
+        display: "flex",
+        flexDirection: "row"
+      };
+
+      var optic = (_optic = {
+
+        justifyContent: "flex-start",
+        padding: '10px',
+        width: '35%',
+        background: '#f0f0f0'
+      }, _defineProperty(_optic, 'padding', '20px 20px 20px 20px'), _defineProperty(_optic, 'margin', '30px 10px 10px 30px'), _optic);
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          null,
+          { style: mainOptic },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h2',
-            null,
-            'Available Items'
+            'div',
+            { style: optic },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h2',
+              null,
+              'Available Items'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              null,
+              ' ',
+              this.renderItems(),
+              ' '
+            )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'ul',
-            null,
-            ' ',
-            this.renderItems(),
-            ' '
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Item__["a" /* default */], { item: this.state.currentItem })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Item__["a" /* default */], { item: this.state.currentItem }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__NewItem__["a" /* default */], { onAdd: this.handleNewItem })
+        )
       );
     }
   }]);
@@ -57262,7 +57284,12 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 var Item = function Item(_ref) {
   var item = _ref.item;
 
-  var optic = {};
+  var optic = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '65%',
+    margin: '30px 10px 10px 30px'
+  };
   if (!item) {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
@@ -57303,7 +57330,7 @@ var Item = function Item(_ref) {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'h5',
       null,
-      ' Stock: ',
+      ' Status ',
       item.stock ? 'In Stock' : 'No Stock - Please Check Back Later',
       ' '
     )
@@ -57379,7 +57406,16 @@ var NewItem = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var optic = {};
+      var optic = {
+        position: 'absolute',
+        left: '35%',
+        top: '60%',
+        flexDirection: 'space-between',
+        marginLeft: '30px'
+      };
+      var inputOptic = {
+        margin: '0px 10px 0px 10px'
+      };
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
@@ -57398,7 +57434,7 @@ var NewItem = function (_Component) {
               'label',
               null,
               ' Name:',
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: function onChange(e) {
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { style: inputOptic, type: 'text', onChange: function onChange(e) {
                   return _this2.handleInput('name', e);
                 } })
             ),
@@ -57406,7 +57442,7 @@ var NewItem = function (_Component) {
               'label',
               null,
               ' About:',
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: function onChange(e) {
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { style: inputOptic, type: 'text', onChange: function onChange(e) {
                   return _this2.handleInput('about', e);
                 } })
             ),
@@ -57414,7 +57450,7 @@ var NewItem = function (_Component) {
               'label',
               null,
               ' Price:',
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: function onChange(e) {
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { style: inputOptic, type: 'text', onChange: function onChange(e) {
                   return _this2.handleInput('price', e);
                 } })
             ),
@@ -57422,7 +57458,7 @@ var NewItem = function (_Component) {
               'label',
               null,
               ' Stock:',
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: function onChange(e) {
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { style: inputOptic, type: 'text', onChange: function onChange(e) {
                   return _this2.handleInput('stock', e);
                 } })
             ),
@@ -57436,7 +57472,7 @@ var NewItem = function (_Component) {
   return NewItem;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (NewItem);
+/* harmony default export */ __webpack_exports__["a"] = (NewItem);
 
 /***/ })
 /******/ ]);

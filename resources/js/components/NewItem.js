@@ -28,7 +28,14 @@ class NewItem extends Component {
 
     render() {
       const optic = {
-
+        position: 'absolute',
+        left: '35%',
+        top: '60%',
+        flexDirection: 'space-between',
+        marginLeft: '30px'
+      }
+      const inputOptic = {
+        margin: '0px 10px 0px 10px'
       }
       return(
         <div>
@@ -37,19 +44,19 @@ class NewItem extends Component {
             <form onSubmit={this.handleSubmit}>
 
               <label> Name:
-                <input type="text" onChange={(e)=>this.handleInput('name', e)} />
+                <input style={inputOptic} type="text" onChange={(e)=>this.handleInput('name', e)} />
               </label>
 
               <label> About:
-                <input type="text" onChange={(e)=>this.handleInput('about', e)} />
+                <input style={inputOptic} type="text" onChange={(e)=>this.handleInput('about', e)} />
               </label>
 
               <label> Price:
-                <input type="text" onChange={(e)=>this.handleInput('price', e)} />
+                <input style={inputOptic} type="text" onChange={(e)=>this.handleInput('price', e)} />
               </label>
 
               <label> Stock:
-                <input type="text" onChange={(e)=>this.handleInput('stock', e)} />
+                <input style={inputOptic} type="text" onChange={(e)=>this.handleInput('stock', e)} />
               </label>
 
               <input type="submit" value="Submit" />
