@@ -1,4 +1,4 @@
-# [iTemizer - WiP](https://react-laravel.herokuapp.com/)
+# [iTemizer - Work in Progress](https://react-laravel.herokuapp.com/)
 
 ### App made with REACT JS and also Laravel PHP to create a RESTful backend API.
 #### This is still a work in progress (WiP), however, to view Heroku deployment please Click App Name Above to View.
